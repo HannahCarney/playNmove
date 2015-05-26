@@ -10,22 +10,19 @@
 </head>
 
 <body>
-
+<section id="data-output"></section>
 
 <script type="text/javascript">
-var data;
-    // var file = evt.target.files[0];
+
     var file = "post-data.csv";
 
-      Papa.parse(file, {
-      //makes sure the first line is interpreted as a header, not data
+    Papa.parse(file, {
+      ////makes sure the first line is interpreted as a header, not data
       header: true,
-
       //allows stuff to be typed as their respective primitive types instead of only strings. turned off in this case
-      dynamicTyping: false,
-
+      dynamicTyping: true,
       //allows you to define the delimiter if not a default comma
-      delimiter: ",",
+      delimiter: "|",
 
       //allows you to define a comment line, which would be skipped by the parser
       comments: "//",
@@ -35,10 +32,17 @@ var data;
 
       download: true,
 
-      step: function(results){
-        console.log(results.data);
-      }
+        step: function (results) {
+            var data = results.data;
+            // $("#data-output").append("<div class='parse'>" + data("date") + "</div>");
+            $.each(results.data[0], function(i) {
+                $("#data-output").append($("<td style=padding:1em/>").text(data[0][i]));
+            });
+            // console.log(results);
+            console.log(data[0])
+        }
     });
+
 </script>
 
 
