@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+     <meta name="viewport" content="width=device-width">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+     <script src="https://code.jquery.com/jquery-1.11.2.js"></script>
+     <script src="papaparse.js"></script>
+    <title>Data</title>
+</head>
+
+<body>
+
+
+<script type="text/javascript">
+  var data;
+ 
+  function handleFileSelect(evt) {
+    var file = evt.target.files[0];
+ 
+    Papa.parse(file, {
+      header: true,
+      dynamicTyping: true,
+      complete: function(results) {
+        data = results;
+        console.log(data)
+      }
+    });
+  }
+ 
+  $(document).ready(function(){
+    $("#csv-file").change(handleFileSelect);
+  });
+</script>
+<input type="file" id="csv-file" name="files"/>
+
+
+</body>
+</html>
