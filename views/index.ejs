@@ -13,26 +13,33 @@
 
 
 <script type="text/javascript">
-  var data;
- 
-  function handleFileSelect(evt) {
-    var file = evt.target.files[0];
- 
-    Papa.parse(file, {
+var data;
+    // var file = evt.target.files[0];
+    var file = "post-data.csv";
+
+      Papa.parse(file, {
+      //makes sure the first line is interpreted as a header, not data
       header: true,
-      dynamicTyping: true,
-      complete: function(results) {
-        data = results;
-        console.log(data)
+
+      //allows stuff to be typed as their respective primitive types instead of only strings. turned off in this case
+      dynamicTyping: false,
+
+      //allows you to define the delimiter if not a default comma
+      delimiter: ",",
+
+      //allows you to define a comment line, which would be skipped by the parser
+      comments: "//",
+
+      //turns on fastmode, quicker but assumes no quoted fields is present
+      fastmode: true,
+
+      download: true,
+
+      step: function(results){
+        console.log(results.data);
       }
     });
-  }
- 
-  $(document).ready(function(){
-    $("#csv-file").change(handleFileSelect);
-  });
 </script>
-<input type="file" id="csv-file" name="files"/>
 
 
 </body>
