@@ -4,17 +4,39 @@
 <head>
      <meta name="viewport" content="width=device-width">
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
      <script src="https://code.jquery.com/jquery-1.11.2.js"></script>
+     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
      <script src="papaparse.js"></script>
     <title>Data</title>
+    
+    <style>
+      ul { list-style-type: none; margin: 1em; padding: 0; margin-bottom: 10px; text-align: center; }
+      li { margin: 5px; padding: 5px; width: 500px; text-align: center; width: auto; }
+    </style>
+    
+    <script>
+      $(function() {
+        $( "#data-output" ).sortable({
+          revert: true
+        });
+        $( ".individual" ).draggable({
+          connectToSortable: "#data.output"
+        });
+        $( "ul, li" ).disableSelection();
+      });
+    </script>
+    
 </head>
 
 <body>
-<section id="data-output"></section>
+
+<ul id="data-output"></ul>
 
 <script type="text/javascript">
 
     var file = "post-data.csv";
+    var count = 1;
 
     Papa.parse(file, {
       ////makes sure the first line is interpreted as a header, not data
@@ -33,15 +55,27 @@
       download: true,
 
         step: function (results) {
-            var data = results.data;
-            // $("#data-output").append("<div class='parse'>" + data("date") + "</div>");
-            $.each(results.data[0], function(i) {
-                $("#data-output").append($("<tr id=" + i + "/>").text(data[0][i]));
-            });
+           var data = results.data;
+          $.each(results.data[0], function(i) {
+              $("#data-output").append($("<li id=" + i + "class='ui-sortable'" + "/>").text(data[0][i]));
+          });
             // console.log(results);
-            console.log(data[0])
+            console.log(data[0]);
+            wrapObjects();
         }
-    });
+    }); 
+
+    // $("#data-output").click(function() {
+            
+    // });
+
+    var wrapObjects = function() {
+      var person;
+      while ( (person = $('#data-output > li:not(.individual)')).length > 0 )
+      {
+        person.slice(0,4).wrapAll('<ul class="ui-state-default individual individual'+ count++ +'"></ul>');
+      }
+    };
 
 </script>
 
