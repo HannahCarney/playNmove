@@ -36,7 +36,7 @@
             var data = results.data;
             // $("#data-output").append("<div class='parse'>" + data("date") + "</div>");
             $.each(results.data[0], function(i) {
-                $("#data-output").append($("<td style=padding:1em/>").text(data[0][i]));
+                $("#data-output").append($("<tr/>").text(data[0][i]));
             });
             // console.log(results);
             console.log(data[0])
