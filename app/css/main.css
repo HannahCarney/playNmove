@@ -3,6 +3,7 @@ ul {
   margin: 1em; 
   padding: 0; 
   margin-bottom: 10px; 
+  overflow: scroll; 
 }
 
 li { 
