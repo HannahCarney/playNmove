@@ -17,7 +17,6 @@ li {
 
 .ui-state-default:active
 {
-    background-color:#FFFFFF;
     border: 1px solid #132b14;
     color:#132b14;
 }
