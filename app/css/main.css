@@ -15,9 +15,9 @@ li {
   text-align: center;
 }
 
-.ui-state-highlighted {
-  border: 1px solid #d3d3d3;
-  background-color: yellow;
-  font-weight: normal;
-  color: #555555;
+.ui-state-default:active
+{
+    background-color:#FFFFFF;
+    border: 1px solid #132b14;
+    color:#132b14;
 }
