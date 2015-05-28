@@ -21,10 +21,3 @@ li {
   font-weight: normal;
   color: #555555;
 }
-
-@media screen and (max-width: 768px) {
-
-input[type="submit"]:before {
-  content: "<a href="http://www.google.com">";
-
-}
