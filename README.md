@@ -16,7 +16,7 @@ This app is a quick (but thorough) attempt at completing a task given to me by a
 
 #### Link to Heroku - Live.
 
-- [move-n-play](https://move-n-play.herokuapp.com)
+- [play-N-move](https://move-n-play.herokuapp.com)
 (Please note unless you are on a mobile, you will be redirected).
 
 #### To see it run or see the code on your desktop/laptop.
