@@ -1,4 +1,4 @@
-# PostBrowser
+# Play-N-Move
 ### A small web app that allows users to scroll through a list of posts.
 
 ## Intro
