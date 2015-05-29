@@ -16,7 +16,7 @@ This app is a quick (but thorough) attempt at completing a task given to me by a
 
 #### Link to Heroku - Live.
 
-- [PostBrowser](https://moveNplay.herokuapp.com)
+- [move-n-play](https://move-n-play.herokuapp.com)
 (Please note unless you are on a mobile, you will be redirected).
 
 #### To see it run or see the code on your desktop/laptop.
@@ -24,7 +24,7 @@ This app is a quick (but thorough) attempt at completing a task given to me by a
 Please follow the commands on your terminal to download a copy of the app;
 
 ```
-git clone https://github.com/HannahCarney/moveNplay.git
+git clone https://github.com/HannahCarney/playNmove.git
 cd PostBrowser
 ```
 Once this is complete, find your way to the file named `index.ejs` and change a number that is within a `<script>` tag in the head. Where it says `(screen.width > 1024)` please change it to anything over 2000. This is because it is detecting how big your screen is, and directing the page to the site for mobile/tablet users (with a screen of under 1024px) or desktop laptop users (with screen sizes anything bigger then a tablet).
